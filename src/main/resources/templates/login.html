@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema | Log in</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" type="text/css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{js/plugins/fontawesome-free/css/all.min.css}" type="text/css">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{css/adminlte.css}" type="text/css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="/" class="h1"><b>Sistema</b> de Inventario</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Bienvenidos, ingresen sus datos</p>
+                <form class="login-form" th:action="@{/login}" method="post">
+             	<div class="form">
+                    <table border="0" class="tabla">
+						<tr>
+						<div class="input-group mb-4">
+						<td>USUARIO:</td>
+                        <td><input type="email" id="email" name="email" required autofocus />
+                        </td><td>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div></td>
+                        </div>
+                    </div>
+                    </tr><tr>	
+                    <div class="input-group mb-4">
+				     <td>CONTRASEÑA:</td>
+			          <td><input type="password" id="password" name="password" required />
+                       </td> 
+                        <td><div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div></td>
+                        
+                        </div>
+                    </div>
+                    </tr></table>	
+                      </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+
+        </div>
+
+    </div>
+    <script th:src="@{js/plugins/jquery/jquery.min.js}" type=""></script>
+    <script th:src="@{js/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{js/adminlte.min.js}"></script> 
+</body>
+
+</html>

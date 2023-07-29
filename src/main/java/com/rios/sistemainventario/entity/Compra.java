@@ -1,0 +1,44 @@
+package com.rios.sistemainventario.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import jakarta.persistence.*;
+
+
+import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "compra")
+public class Compra {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "fecha", nullable = false)
+    private Date fecha = new Date();
+
+
+    @Column(name = "total", nullable = false)
+    private Double total;
+
+    @Column(name = "estado", length = 20)
+    private String estado;
+    @ManyToOne
+    @JoinColumn(name = "proveedor_id", nullable = false)
+    private Proveedor proveedor;
+
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<DetalleCompra> detalles;
+
+}
